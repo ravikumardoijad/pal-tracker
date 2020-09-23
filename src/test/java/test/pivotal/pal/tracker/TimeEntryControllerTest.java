@@ -31,10 +31,10 @@ public class TimeEntryControllerTest {
     public void testCreate() {
         long projectId = 123L;
         long userId = 456L;
-        TimeEntry timeEntryToCreate = new TimeEntry(projectId, userId, LocalDate.parse("2017-01-08"), 8);
+        TimeEntry timeEntryToCreate = new TimeEntry(projectId, userId, LocalDate.parse("2020-09-23"), 8);
 
         long timeEntryId = 1L;
-        TimeEntry expectedResult = new TimeEntry(timeEntryId, projectId, userId, LocalDate.parse("2017-01-08"), 8);
+        TimeEntry expectedResult = new TimeEntry(timeEntryId, projectId, userId, LocalDate.parse("2020-09-23"), 8);
         doReturn(expectedResult)
             .when(timeEntryRepository)
             .create(any(TimeEntry.class));
@@ -51,7 +51,7 @@ public class TimeEntryControllerTest {
         long timeEntryId = 1L;
         long projectId = 123L;
         long userId = 456L;
-        TimeEntry expected = new TimeEntry(timeEntryId, projectId, userId, LocalDate.parse("2017-01-08"), 8);
+        TimeEntry expected = new TimeEntry(timeEntryId, projectId, userId, LocalDate.parse("2020-09-23"), 8);
         doReturn(expected)
             .when(timeEntryRepository)
             .find(timeEntryId);
@@ -77,8 +77,8 @@ public class TimeEntryControllerTest {
     @Test
     public void testList() {
         List<TimeEntry> expected = asList(
-            new TimeEntry(1L, 123L, 456L, LocalDate.parse("2017-01-08"), 8),
-            new TimeEntry(2L, 789L, 321L, LocalDate.parse("2017-01-07"), 4)
+            new TimeEntry(1L, 123L, 456L, LocalDate.parse("2020-09-23"), 8),
+            new TimeEntry(2L, 789L, 321L, LocalDate.parse("2020-09-23"), 4)
         );
         doReturn(expected).when(timeEntryRepository).list();
 
@@ -94,7 +94,7 @@ public class TimeEntryControllerTest {
         long timeEntryId = 1L;
         long projectId = 987L;
         long userId = 654L;
-        TimeEntry expected = new TimeEntry(timeEntryId, projectId, userId, LocalDate.parse("2017-01-07"), 4);
+        TimeEntry expected = new TimeEntry(timeEntryId, projectId, userId, LocalDate.parse("2020-09-23"), 4);
         doReturn(expected)
             .when(timeEntryRepository)
             .update(eq(timeEntryId), any(TimeEntry.class));
